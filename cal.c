@@ -99,19 +99,16 @@ void printYearCalendar(int year) {
             }
             printf("\n");
         }
-        printf("\n");
     }
 }
 
 int get_dow(int day, int month, int year) {
     if (year < 1 || month < 1 || month > 12 || day < 1 || day > getDaysInMonth(month, year))
     return 0;
-
     if (month < 3) {
         month += 12;
         year -= 1;
     }
-
     bool isGregorian = false;
 
     if (year > 1752 || (year == 1752 && (month > 9 || (month == 9 && day >= 14)))) {
@@ -145,7 +142,7 @@ void cal(int month, int year) {
 }
 
 void displayCal() {
-    int day, month, year;
+    int month, year;
     while (1) {
         printf("Enter year (>0): ");
         if (scanf("%d", &year) != 1 || year < 1) {
